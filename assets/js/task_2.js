@@ -3,6 +3,9 @@ const arr = [];
 for (let i=0; i<10;i++) {
     arr.push(getRandomInt(0,100));
 }
+
+
+
 console.group("Show all elements")
 showArr(arr);
 console.groupEnd();
@@ -19,6 +22,19 @@ console.group("Max element from array")
 console.log(maxOfArr(arr));
 console.groupEnd();
 
+console.group("Push element for index");
+pushOnIndex(arr, Number(prompt("Enter element: ")),  Number(prompt("Enter index of element: ")) );
+console.log(arr);
+console.groupEnd();
+
+console.group("Pop element for index");
+popOnIndex(arr,Number(prompt("Enter index of element to delete is: ")));
+console.log(arr);
+console.groupEnd();
+
+
+
+
 function showArr(arr){
     arr.forEach(item => console.log(item));
 }
@@ -29,7 +45,6 @@ function evenElements(arr){
             console.log(item);
         }
     });
-
 }
 
 
@@ -53,8 +68,11 @@ function maxOfArr(arr){
 
 
 function pushOnIndex(arr, item, index){
-    
+    arr.splice(index,0, item);
+}
 
+function popOnIndex(arr, index){
+    arr.splice(index,1);
 }
 
 
